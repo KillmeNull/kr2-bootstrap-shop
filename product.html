@@ -6,10 +6,7 @@
   <meta name="description" content="Калькулятор 1С: описание, цена и характеристики товара.">
   <title>Калькулятор 1С — Перекупы 1С</title>
 
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  >
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/custom.css">
 </head>
 <body class="d-flex flex-column">
@@ -74,6 +71,10 @@
           <li class="nav-item">
             <a class="nav-link" href="order.html">Заявка</a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="contacts.html">Контакты</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -122,140 +123,197 @@
       </div>
     </div>
 
+    <!-- Вкладки (tabs): характеристики, частые вопросы, доставка и оплата -->
     <section class="mt-5">
-      <h2 class="h4 mb-3">Характеристики</h2>
+      <h2 class="h4 mb-3">Подробнее о товаре</h2>
 
-      <div class="table-responsive">
-        <table class="table table-striped table-bordered align-middle">
-          <tbody>
-            <tr>
-              <th scope="row">Категория</th>
-              <td>Офисная техника</td>
-            </tr>
-            <tr>
-              <th scope="row">Цена</th>
-              <td>1000 руб.</td>
-            </tr>
-            <tr>
-              <th scope="row">Наличие</th>
-              <td>В наличии</td>
-            </tr>
-            <tr>
-              <th scope="row">Разрядность дисплея</th>
-              <td>12 разрядов</td>
-            </tr>
-            <tr>
-              <th scope="row">Питание</th>
-              <td>Солнечная батарея и элемент питания</td>
-            </tr>
-            <tr>
-              <th scope="row">Гарантия</th>
-              <td>12 месяцев</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section class="mt-5">
-      <h2 class="h4 mb-3">Частые вопросы</h2>
-
-      <div class="accordion" id="faqAccordion">
-      <div class="accordion-item">
-        <h3 class="accordion-header">
+      <ul class="nav nav-tabs" id="productTabs" role="tablist">
+        <li class="nav-item" role="presentation">
           <button
-            class="accordion-button"
+            class="nav-link active"
+            id="specs-tab"
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#faqOne"
-            aria-expanded="true"
-            aria-controls="faqOne"
+            role="tab"
+            data-bs-toggle="tab"
+            data-bs-target="#specs-pane"
+            aria-controls="specs-pane"
+            aria-selected="true"
           >
-            Можно ли оформить заявку без регистрации?
+            Характеристики
           </button>
-        </h3>
-        <div
-          id="faqOne"
-          class="accordion-collapse collapse show"
-          data-bs-parent="#faqAccordion"
-        >
-          <div class="accordion-body">
-            Да, регистрация не нужна: достаточно имени, e-mail и согласия на обработку данных.
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="faq-tab"
+            type="button"
+            role="tab"
+            data-bs-toggle="tab"
+            data-bs-target="#faq-pane"
+            aria-controls="faq-pane"
+            aria-selected="false"
+          >
+            Частые вопросы
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="delivery-tab"
+            type="button"
+            role="tab"
+            data-bs-toggle="tab"
+            data-bs-target="#delivery-pane"
+            aria-controls="delivery-pane"
+            aria-selected="false"
+          >
+            Доставка и оплата
+          </button>
+        </li>
+      </ul>
+
+      <div class="tab-content border border-top-0 rounded-bottom bg-white p-3 p-md-4" id="productTabsContent">
+        <div class="tab-pane fade show active" id="specs-pane" role="tabpanel" aria-labelledby="specs-tab" tabindex="0">
+          <div class="table-responsive">
+            <table class="table table-striped table-bordered align-middle mb-0">
+              <caption class="visually-hidden">Характеристики товара «Калькулятор 1С»</caption>
+              <tbody>
+                <tr>
+                  <th scope="row">Категория</th>
+                  <td>Офисная техника</td>
+                </tr>
+                <tr>
+                  <th scope="row">Цена</th>
+                  <td>1000 руб.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Наличие</th>
+                  <td>В наличии</td>
+                </tr>
+                <tr>
+                  <th scope="row">Разрядность дисплея</th>
+                  <td>12 разрядов</td>
+                </tr>
+                <tr>
+                  <th scope="row">Питание</th>
+                  <td>Солнечная батарея и элемент питания</td>
+                </tr>
+                <tr>
+                  <th scope="row">Гарантия</th>
+                  <td>12 месяцев</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
-      </div>
 
-      <div class="accordion-item">
-        <h3 class="accordion-header">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#faqTwo"
-            aria-expanded="false"
-            aria-controls="faqTwo"
-          >
-            Как быстро доставляете?
-          </button>
-        </h3>
-        <div
-          id="faqTwo"
-          class="accordion-collapse collapse"
-          data-bs-parent="#faqAccordion"
-        >
-          <div class="accordion-body">
-            За 1–3 дня. Дольше держать товар у себя нам жалко, а вам — ждать.
+        <div class="tab-pane fade" id="faq-pane" role="tabpanel" aria-labelledby="faq-tab" tabindex="0">
+          <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faqOne"
+                  aria-expanded="true"
+                  aria-controls="faqOne"
+                >
+                  Можно ли оформить заявку без регистрации?
+                </button>
+              </h3>
+              <div
+                id="faqOne"
+                class="accordion-collapse collapse show"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body">
+                  Да, регистрация не нужна: достаточно имени, e-mail и согласия на обработку данных.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faqTwo"
+                  aria-expanded="false"
+                  aria-controls="faqTwo"
+                >
+                  Как быстро доставляете?
+                </button>
+              </h3>
+              <div
+                id="faqTwo"
+                class="accordion-collapse collapse"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body">
+                  За 1–3 дня. Дольше держать товар у себя нам жалко, а вам — ждать.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faqThree"
+                  aria-expanded="false"
+                  aria-controls="faqThree"
+                >
+                  Можно ли вернуть товар?
+                </button>
+              </h3>
+              <div
+                id="faqThree"
+                class="accordion-collapse collapse"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body">
+                  Калькулятор и коробочку — в течение 14 дней. Знания после курса вернуть, к сожалению, нельзя.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faqFour"
+                  aria-expanded="false"
+                  aria-controls="faqFour"
+                >
+                  Где используется Bootstrap?
+                </button>
+              </h3>
+              <div
+                id="faqFour"
+                class="accordion-collapse collapse"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body">
+                  Везде на этом сайте: сетка, навигация, карточки, формы, сообщения, модальное окно и этот accordion.
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="accordion-item">
-        <h3 class="accordion-header">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#faqThree"
-            aria-expanded="false"
-            aria-controls="faqThree"
-          >
-            Можно ли вернуть товар?
-          </button>
-        </h3>
-        <div
-          id="faqThree"
-          class="accordion-collapse collapse"
-          data-bs-parent="#faqAccordion"
-        >
-          <div class="accordion-body">
-            Калькулятор и коробочку — в течение 14 дней. Знания после курса вернуть, к сожалению, нельзя.
-          </div>
+        <div class="tab-pane fade" id="delivery-pane" role="tabpanel" aria-labelledby="delivery-tab" tabindex="0">
+          <ul class="mb-0">
+            <li>Доставка по городу — 1–3 дня, курьер привезёт товар в удобное время.</li>
+            <li>Оплата наличными или картой при получении.</li>
+            <li>Курс оплачивается после первого занятия: сначала убедитесь, что 1С вам по душе.</li>
+          </ul>
         </div>
-      </div>
-
-      <div class="accordion-item">
-        <h3 class="accordion-header">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#faqFour"
-            aria-expanded="false"
-            aria-controls="faqFour"
-          >
-            Где используется Bootstrap?
-          </button>
-        </h3>
-        <div
-          id="faqFour"
-          class="accordion-collapse collapse"
-          data-bs-parent="#faqAccordion"
-        >
-          <div class="accordion-body">
-            Везде на этом сайте: сетка, навигация, карточки, формы, сообщения, модальное окно и этот accordion.
-          </div>
-        </div>
-      </div>
       </div>
     </section>
   </main>
@@ -273,16 +331,17 @@
           <a class="text-white text-decoration-none me-3" href="catalog.html">
             Каталог
           </a>
-          <a class="text-white text-decoration-none" href="order.html">
+          <a class="text-white text-decoration-none me-3" href="order.html">
             Заявка
+          </a>
+          <a class="text-white text-decoration-none" href="contacts.html">
+            Контакты
           </a>
         </div>
       </div>
     </div>
   </footer>
 
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
-  </script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
