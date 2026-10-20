@@ -6,6 +6,61 @@
 */
 
 /*
+  1. Цвета проекта.
+  По умолчанию у Bootstrap синие ссылки, вкладки, фокус полей и активные пункты.
+  Чтобы весь сайт был в жёлто-тёмной гамме, переопределяем CSS-переменные Bootstrap,
+  а не переписываем стили компонентов.
+*/
+:root {
+  /* Тёмно-янтарный цвет ссылок: в тон жёлтому, но читается на белом фоне */
+  --shop-accent: #7a5200;
+  --shop-accent-rgb: 122, 82, 0;
+  --shop-accent-hover: #4d3400;
+  --shop-accent-hover-rgb: 77, 52, 0;
+
+  /* Полупрозрачная жёлтая обводка фокуса */
+  --shop-focus-ring: rgba(255, 193, 7, 0.5);
+
+  --bs-link-color: var(--shop-accent);
+  --bs-link-color-rgb: var(--shop-accent-rgb);
+  --bs-link-hover-color: var(--shop-accent-hover);
+  --bs-link-hover-color-rgb: var(--shop-accent-hover-rgb);
+  --bs-focus-ring-color: var(--shop-focus-ring);
+}
+
+/* Активный пункт выпадающего меню: жёлтый вместо синего */
+.dropdown-menu {
+  --bs-dropdown-link-active-bg: var(--bs-warning);
+  --bs-dropdown-link-active-color: var(--bs-dark);
+}
+
+/* Открытый вопрос в accordion: светло-жёлтый фон вместо голубого */
+.accordion {
+  --bs-accordion-active-bg: var(--bs-warning-bg-subtle);
+  --bs-accordion-active-color: var(--bs-body-color);
+  --bs-accordion-btn-active-icon: var(--bs-accordion-btn-icon);
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem var(--shop-focus-ring);
+}
+
+/*
+  Фокус полей формы. В скомпилированном Bootstrap эти цвета заданы
+  без переменных, поэтому переопределяем сами свойства.
+*/
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus {
+  border-color: #cc9a06;
+  box-shadow: 0 0 0 0.25rem var(--shop-focus-ring);
+}
+
+/* Отмеченный чекбокс: тёмный, как кнопки btn-outline-dark */
+.form-check-input:checked {
+  background-color: var(--bs-dark);
+  border-color: var(--bs-dark);
+}
+
+/*
+  2. Раскладка страницы.
   Страница занимает всю высоту окна.
   Вместе с классами d-flex flex-column у body и flex-grow-1 у main
   это прижимает подвал к низу окна на коротких страницах.
@@ -15,11 +70,19 @@ body {
 }
 
 /*
-  Минимальная высота промо-блока в hero, чтобы он не сжимался
-  до высоты текста и был сопоставим с левой колонкой.
+  3. Изображения.
+  Слайд карусели на главной: одинаковая высота у всех слайдов,
+  чтобы блок не прыгал при смене слайда.
 */
-.placeholder-box {
-  min-height: 240px;
+.hero-slide {
+  min-height: 340px;
+}
+
+.hero-slide__image {
+  width: auto;
+  max-width: 100%;
+  height: 200px;
+  object-fit: contain;
 }
 
 /*

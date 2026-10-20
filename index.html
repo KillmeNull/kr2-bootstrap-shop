@@ -6,10 +6,7 @@
   <meta name="description" content="Главная страница учебного интернет-магазина «Перекупы 1С» на Bootstrap.">
   <title>Главная — Перекупы 1С</title>
 
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  >
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/custom.css">
 </head>
 <body class="d-flex flex-column">
@@ -74,6 +71,10 @@
           <li class="nav-item">
             <a class="nav-link" href="order.html">Заявка</a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="contacts.html">Контакты</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -107,13 +108,85 @@
           </div>
 
           <div class="col-12 col-lg-6">
-            <div class="placeholder-box d-flex flex-column justify-content-center p-5 bg-white border rounded shadow-sm text-center">
-              <span class="badge bg-danger align-self-center mb-3">Акция</span>
-              <p class="h4 fw-bold">Курс + калькулятор всего за 6000 руб.</p>
-              <p class="mb-0 text-body-secondary">
-                Это ровно сумма их цен, зато звучит выгодно.
-                Считать будущую зарплату разработчика 1С удобнее на фирменном калькуляторе.
-              </p>
+            <!--
+              Карусель: тёмные стрелки и индикаторы (data-bs-theme="dark" у карусели),
+              а содержимое слайдов в обычной светлой теме (data-bs-theme="light").
+            -->
+            <div
+              id="heroCarousel"
+              class="carousel slide bg-white border rounded shadow-sm"
+              data-bs-ride="carousel"
+              data-bs-theme="dark"
+            >
+              <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#heroCarousel"
+            data-bs-slide-to="0" class="active" aria-current="true"
+            aria-label="Слайд 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#heroCarousel"
+            data-bs-slide-to="1"
+            aria-label="Слайд 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#heroCarousel"
+            data-bs-slide-to="2"
+            aria-label="Слайд 3"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#heroCarousel"
+            data-bs-slide-to="3"
+            aria-label="Слайд 4"
+          ></button>
+              </div>
+
+              <div class="carousel-inner" data-bs-theme="light">
+                <div class="carousel-item active">
+                  <div class="hero-slide d-flex flex-column justify-content-center align-items-center text-center px-5 pt-4 pb-5">
+                    <span class="badge bg-danger mb-3">Акция</span>
+                    <p class="h4 fw-bold">Курс + калькулятор всего за 6000 руб.</p>
+                    <p class="mb-0 text-body-secondary">
+                      Это ровно сумма их цен, зато звучит выгодно.
+                      Считать будущую зарплату разработчика 1С удобнее на фирменном калькуляторе.
+                    </p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <a class="hero-slide d-flex flex-column justify-content-center align-items-center text-center px-5 pt-4 pb-5 text-body text-decoration-none" href="product.html">
+                    <img class="hero-slide__image mb-3" src="images/product-1.jpg" alt="Жёлтый настольный калькулятор 1С с красными клавишами" width="440" height="454">
+                    <span class="h5 mb-1">Калькулятор 1С</span>
+                    <span class="text-body-secondary">1000 руб.</span>
+                  </a>
+                </div>
+                <div class="carousel-item">
+                  <a class="hero-slide d-flex flex-column justify-content-center align-items-center text-center px-5 pt-4 pb-5 text-body text-decoration-none" href="product-2.html">
+                    <img class="hero-slide__image mb-3" src="images/product-2.jpg" alt="Жёлтая коробка программы «1С:Бухгалтерия сельскохозяйственного предприятия» с изображением трактора" width="395" height="506">
+                    <span class="h5 mb-1">Коробочка 1С:Бухгалтерия</span>
+                    <span class="text-body-secondary">2000 руб.</span>
+                  </a>
+                </div>
+                <div class="carousel-item">
+                  <a class="hero-slide d-flex flex-column justify-content-center align-items-center text-center px-5 pt-4 pb-5 text-body text-decoration-none" href="product-3.html">
+                    <img class="hero-slide__image mb-3" src="images/product-3.jpg" alt="Преподаватель в жёлтой футболке 1С выступает с микрофоном на фоне плаката «1С:ERP»" width="800" height="775">
+                    <span class="h5 mb-1">Курс 1С разработчик</span>
+                    <span class="text-body-secondary">5000 руб.</span>
+                  </a>
+                </div>
+              </div>
+
+              <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Предыдущий слайд</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Следующий слайд</span>
+              </button>
             </div>
           </div>
         </div>
@@ -253,16 +326,17 @@
           <a class="text-white text-decoration-none me-3" href="catalog.html">
             Каталог
           </a>
-          <a class="text-white text-decoration-none" href="order.html">
+          <a class="text-white text-decoration-none me-3" href="order.html">
             Заявка
+          </a>
+          <a class="text-white text-decoration-none" href="contacts.html">
+            Контакты
           </a>
         </div>
       </div>
     </div>
   </footer>
 
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
-  </script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
